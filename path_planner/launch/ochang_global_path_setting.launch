@@ -1,0 +1,10 @@
+<launch>
+  <node name="tr_processing" pkg="tr_processing"  type="tr_processing" respawn="true" />
+  <node name="novatel_node" pkg="irlgps"  type="novatel_node" respawn="true" />
+  <node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="-d /home/a/selfcar_ws/rviz_selfcar.rviz"/>
+ <group ns="ochang_map">
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find global_path_planner)/map_data/ochang_map.yaml" >
+  </node>
+ </group>
+</launch>

@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: global_path_planner
+Description: Description of global_path_planner
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lglobal_path_planner
+Requires: nav_msgs pcl_ros roscpp rospy sensor_msgs std_msgs tf2 morai_msgs

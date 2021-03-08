@@ -1,0 +1,6 @@
+image: ochang_signal_stop.png
+resolution: 0.1
+origin: [-58.5, -30.3, 0.0]
+occupied_thresh: 0.45
+free_thresh: 0.1
+negate: 0

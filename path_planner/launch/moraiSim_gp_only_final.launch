@@ -1,0 +1,35 @@
+<launch>
+  <group ns="plain_map">
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find global_path_planner)/map_data/plain_map.yaml">
+    </node>
+  </group>
+  <group ns="region_map">
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find global_path_planner)/map_data/region_map_20.yaml">
+    </node>
+  </group>
+  <group ns="global_map">
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find global_path_planner)/map_data/global_map.yaml">
+    </node>
+  </group>
+  <group ns="obs_map">
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find global_path_planner)/map_data/DYNAMIC_OBS_REGION.yaml">
+    </node>
+  </group>
+  <node name="globa_path_publisher" pkg="global_path_planner" type="globa_path_publisher.py" output="screen" args="2020_final_path0819" respawn="true" />
+  <node name="Sim_path_tracking" pkg="Sim_path_tracking" type="Sim_path_tracking" respawn="true">
+    <param name="simORreal" value="sim" type="string"/>
+    <param name="c" value="0.9" tyoe="double"/>
+  </node>
+  <!-- <node name="parking_lot" pkg="global_path_planner" type="parking_lot" respawn="true"/>
+  <node name="parking_mission" pkg="parking_mission" type="parking_mission" respawn="true" /> -->
+  <node name="velodyne_process" pkg="velodyne_process" type="velodyne_process" respawn="true"/>
+  <node name="local_costmap_moraiSim" pkg="global_path_planner" type="local_costmap_moraiSim" respawn="true" output="screen" args="final_path">
+    <rosparam file="$(find local_map_builder)/config/config.yaml" />
+  </node>
+
+  <!-- <node name="SC_Control" pkg="SC_Control" type="SC_Control" respawn="true">
+    <param name="sc_port_name" value="/dev/ttyUSB0" type="string"/>
+  </node> -->
+
+</launch>
+

@@ -1,0 +1,1 @@
+/usr/bin/g++-5  -fPIC -g  -shared -Wl,-soname,libglobal_path_planner.so -o devel/lib/libglobal_path_planner.so CMakeFiles/global_path_planner.dir/src/pathPlanner.cpp.o 

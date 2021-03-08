@@ -1,0 +1,12 @@
+source_frame: "/map"
+child_frame: "/novatel"
+map_topic: "/ochang_map"
+method: "tf" # tf or odom only #TODO: combined method
+odom_topic: "/gps_utm_odom"
+cost_map: true
+pointcloud_topic: "/velo/heightmap"
+global_map_static: true
+map_size: [15.0, 18.0] #x,y (meter)
+tolerance: 5.0
+cost: 0.1 # meter
+update_frequency: 10 # Hz

@@ -1,0 +1,21 @@
+<launch>
+  <node name="globa_path_publisher" pkg="global_path_planner" type="globa_path_publisher.py" output="screen" args="2020_final_path" respawn="true" />
+  <node name="Sim_path_tracking" pkg="Sim_path_tracking" type="Sim_path_tracking" respawn="true" />
+  <node name="local_costmap" pkg="global_path_planner" type="local_costmap" respawn="true" output="screen" args="final_path" />
+  <!-- <node name="SC_Control" pkg="SC_Control" type="SC_Control" respawn="true">
+    <param name="sc_port_name" value="/dev/ttyUSB0" type="string"/>
+  </node> -->
+  <group ns="plain_map">
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find global_path_planner)/map_data/plain_map.yaml">
+    </node>
+  </group>
+  <group ns="region_map">
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find global_path_planner)/map_data/region_map.yaml">
+    </node>
+  </group>
+  <group ns="global_map">
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find global_path_planner)/map_data/global_map.yaml">
+    </node>
+  </group>
+</launch>
+

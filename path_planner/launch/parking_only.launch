@@ -1,0 +1,6 @@
+<launch>
+  <node name="parking_lot" pkg="global_path_planner"  type="parking_lot" respawn="true" output="screen"/>
+  <node name="parking_mission" pkg="parking_mission"  type="parking_mission" respawn="true" output="screen"/>
+  
+</launch>
+
